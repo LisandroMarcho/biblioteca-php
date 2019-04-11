@@ -9,8 +9,8 @@ if (isset($_POST["cargar"])) {
     $cadena = "INSERT INTO libros (titulo, genero, editorial, anio) VALUES ('$titulo', '$genero', '$editorial', '$anio')";
 
     $consulta = mysqli_query($link, $cadena);
-    
-    if($consulta) echo "<script> alert('Cargado'); </script>";
+
+    if ($consulta) echo "<script> alert('Cargado'); </script>";
     else echo "<script> alert('Hubo un error en la carga'); </script>";
 }
 
@@ -22,14 +22,22 @@ if (isset($_POST["cargar"])) {
     <a href="./" class="w3-button w3-indigo w3-margin-top">Volver a inicio</a> <br>
 
     <form method="POST" class="w3-section">
-        <label>Titulo del libro</label><br>
-        <input type="text" name="titulo"><br>
-        <label>Genero del libro</label><br>
-        <input type="text" name="genero"><br>
-        <label>Editorial del libro</label><br>
-        <input type="text" name="editorial"><br>
-        <label>Año publicado</label><br>
-        <input type="number" name="anio"><br><br>
+        <p>
+            <label>Titulo del libro</label><br>
+            <input type="text" name="titulo" required>
+        </p>
+        <p>
+            <label>Genero del libro</label><br>
+            <input type="text" name="genero" required>
+        </p>
+        <p>
+            <label>Editorial del libro</label><br>
+            <input type="text" name="editorial" required>
+        </p>
+        <p>
+            <label>Año publicado</label><br>
+            <input type="number" name="anio" required>
+        </p>
         <input type="submit" value="Cargar libro" class="w3-button w3-green" name="cargar">
     </form>
 </div>
