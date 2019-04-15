@@ -7,4 +7,7 @@
     <p>
         <a href="cargarlibro.php" class="w3-button w3-green">Cargar libro</a>
     </p>
+    <p>
+        <a href="cargarcliente.php" class="w3-button w3-green">Cargar cliente</a>
+    </p>
 </div>
