@@ -5,10 +5,8 @@ if (isset($_POST["cargar"])) {
     $nom = $_POST["nom"];
     $ape = $_POST["ape"];
     $nacimiento = $_POST["nacimiento"];
-    $fallecimiento = "";
-    if (isset($_POST["fallecimiento"])) {
-        $fallecimiento = $_POST["fallecimiento"];
-    }
+    if (isset($_POST["fallecimiento"])) $fallecimiento = $_POST["fallecimiento"];
+    else $fallecimiento = null;
 
     $cadena = "INSERT INTO autores (nom, ape, nacimiento, fallecimiento) VALUES ('$nom', '$ape', '$nacimiento', '$fallecimiento')";
 
@@ -45,6 +43,23 @@ if (isset($_POST["cargar"])) {
         <p class="w3-text-red">
             * : Obligatiorio
         </p>
-        <input type="submit" value="Cargar autor" class="w3-button w3-green" name="cargar">
+        <input type="submit" value="Cargar nuevo autor" class="w3-button w3-green" name="cargar">
+    </form>
+    <form method="GET" action="cargarlibro.php">
+        <p>
+            <label>Seleccione un autor existente</label><br>
+            <select name="id">
+                <?php
+                $result = mysqli_query($link, "SELECT * FROM autores");
+
+                while ($r = mysqli_fetch_array($result)) :
+                ?>
+                    <option value="<?php echo $r[0] ?>"><?php echo $r[1] ?> <?php echo $r[2] ?></option>
+                <?php endwhile; ?>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="Usar autor" class="w3-button w3-green">
+        </p>
     </form>
 </div>
