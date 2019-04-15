@@ -13,8 +13,8 @@ if (isset($_POST["cargar"])) {
     $cadena = "INSERT INTO autores (nom, ape, nacimiento, fallecimiento) VALUES ('$nom', '$ape', '$nacimiento', '$fallecimiento')";
 
     $consulta = mysqli_query($link, $cadena);
-
-    if ($consulta) echo "<script> alert('Cargado'); </script>";
+    $id = mysqli_insert_id($link);
+    if ($consulta) echo "<script> alert('Cargado'); window.location = 'cargarlibro.php?id=$id'</script>";
     else echo "<script> alert('Hubo un error en la carga'); </script>";
 }
 

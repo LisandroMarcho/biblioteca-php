@@ -1,12 +1,15 @@
 <?php
 include_once("conx.php");
 
+if(isset($_GET["id"])) $idautor = $_GET["id"];
+else $idautor = null;
+
 if (isset($_POST["cargar"])) {
     $titulo = $_POST["titulo"];
     $genero = $_POST["genero"];
     $editorial = $_POST["editorial"];
     $anio = $_POST["anio"];
-    $cadena = "INSERT INTO libros (titulo, genero, editorial, anio) VALUES ('$titulo', '$genero', '$editorial', '$anio')";
+    $cadena = "INSERT INTO libros (idautor, titulo, genero, editorial, anio) VALUES ($idautor, '$titulo', '$genero', '$editorial', '$anio')";
 
     $consulta = mysqli_query($link, $cadena);
 
@@ -23,20 +26,23 @@ if (isset($_POST["cargar"])) {
 
     <form method="POST" class="w3-section">
         <p>
-            <label>Titulo del libro</label><br>
+            <label>Titulo del libro*</label><br>
             <input type="text" name="titulo" required>
         </p>
         <p>
-            <label>Genero del libro</label><br>
+            <label>Genero del libro*</label><br>
             <input type="text" name="genero" required>
         </p>
         <p>
-            <label>Editorial del libro</label><br>
+            <label>Editorial del libro*</label><br>
             <input type="text" name="editorial" required>
         </p>
         <p>
-            <label>Año publicado</label><br>
+            <label>Año publicado*</label><br>
             <input type="number" name="anio" required>
+        </p>
+        <p class="w3-text-red">
+            * : Obligatorio
         </p>
         <input type="submit" value="Cargar libro" class="w3-button w3-green" name="cargar">
     </form>
