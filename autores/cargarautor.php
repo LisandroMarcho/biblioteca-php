@@ -1,5 +1,5 @@
 <?php
-include_once("conx.php");
+include_once("../conx.php");
 
 if (isset($_POST["cargar"])) {
     $nom = $_POST["nom"];
@@ -12,7 +12,7 @@ if (isset($_POST["cargar"])) {
 
     $consulta = mysqli_query($link, $cadena);
     $id = mysqli_insert_id($link);
-    if ($consulta) echo "<script> alert('Cargado'); window.location = 'cargarlibro.php?id=$id'</script>";
+    if ($consulta) echo "<script> alert('Cargado'); window.location = '../libros/cargarlibro.php?id=$id'</script>";
     else echo "<script> alert('Hubo un error en la carga'); </script>";
 }
 
@@ -49,7 +49,7 @@ if (isset($_POST["cargar"])) {
     </form>
 </div>
 <div class="w3-container w3-display w3-half w3-mobile w3-center">
-    <form method="GET" action="cargarlibro.php" class="w3-left w3-mobile">
+    <form method="GET" action="../libros/cargarlibro.php" class="w3-left w3-mobile">
         <p>
             <label>Seleccione un autor existente</label><br>
             <select name="id">

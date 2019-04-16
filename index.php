@@ -5,7 +5,7 @@
         <a href="./autores" class="w3-button w3-green">Autores</a>
     </p>
     <p>
-        <a href="./libros.php" class="w3-button w3-green">Libros</a>
+        <a href="./libros" class="w3-button w3-green">Libros</a>
     </p>
     <p>
         <a href="./clientes" class="w3-button w3-green">Clientes</a>

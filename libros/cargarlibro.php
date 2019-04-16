@@ -1,5 +1,5 @@
 <?php
-include_once("conx.php");
+include_once("../conx.php");
 
 if (isset($_GET["id"])) $idautor = $_GET["id"];
 else $idautor = null;
