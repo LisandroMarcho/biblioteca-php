@@ -20,10 +20,12 @@ if (isset($_POST["cargar"])) {
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<div class="w3-container">
+<div class="w3-container w3-center">
     <a href="./" class="w3-button w3-indigo w3-margin-top">Volver a inicio</a> <br>
+</div>
 
-    <form method="POST" class="w3-section">
+<div class="w3-container w3-display w3-half w3-mobile w3-center">
+    <form method="POST" class="w3-right w3-mobile">
         <p>
             <label>Nombre del autor*</label><br>
             <input type="text" name="nom" required>
@@ -45,7 +47,9 @@ if (isset($_POST["cargar"])) {
         </p>
         <input type="submit" value="Cargar nuevo autor" class="w3-button w3-green" name="cargar">
     </form>
-    <form method="GET" action="cargarlibro.php">
+</div>
+<div class="w3-container w3-display w3-half w3-mobile w3-center">
+    <form method="GET" action="cargarlibro.php" class="w3-left w3-mobile">
         <p>
             <label>Seleccione un autor existente</label><br>
             <select name="id">
@@ -53,7 +57,7 @@ if (isset($_POST["cargar"])) {
                 $result = mysqli_query($link, "SELECT * FROM autores");
 
                 while ($r = mysqli_fetch_array($result)) :
-                ?>
+                    ?>
                     <option value="<?php echo $r[0] ?>"><?php echo $r[1] ?> <?php echo $r[2] ?></option>
                 <?php endwhile; ?>
             </select>

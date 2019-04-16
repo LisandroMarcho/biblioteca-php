@@ -23,7 +23,7 @@ if (isset($_POST["cargar"])) {
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<div class="w3-container">
+<div class="w3-container w3-center">
     <a href="./" class="w3-button w3-indigo w3-margin-top">Volver a inicio</a> <br>
 
     <form method="POST" class="w3-section">
