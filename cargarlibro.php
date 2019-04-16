@@ -1,7 +1,7 @@
 <?php
 include_once("conx.php");
 
-if(isset($_GET["id"])) $idautor = $_GET["id"];
+if (isset($_GET["id"])) $idautor = $_GET["id"];
 else $idautor = null;
 
 if (isset($_POST["cargar"])) {
@@ -9,12 +9,14 @@ if (isset($_POST["cargar"])) {
     $genero = $_POST["genero"];
     $editorial = $_POST["editorial"];
     $anio = $_POST["anio"];
-    $cadena = "INSERT INTO libros (idautor, titulo, genero, editorial, anio) VALUES ($idautor, '$titulo', '$genero', '$editorial', '$anio')";
+    $cadena = "INSERT INTO libros (titulo, genero, editorial, anio) VALUES ('$titulo', '$genero', '$editorial', '$anio');";
 
     $consulta = mysqli_query($link, $cadena);
 
-    if ($consulta) echo "<script> alert('Cargado'); </script>";
-    else echo "<script> alert('Hubo un error en la carga'); </script>";
+    if ($consulta) {
+        mysqli_query($link, "INSERT INTO autoreslibros (idlibro, idautor) VALUES (LAST_INSERT_ID(), $idautor)");
+        echo "<script> alert('Cargado'); </script>";
+    } else echo "<script> alert('Hubo un error en la carga'); </script>";
 }
 
 ?>

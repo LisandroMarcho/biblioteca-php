@@ -12,8 +12,15 @@ if (isset($_POST["cargar"])) {
     $num = $_POST["num"];
     if(isset($_POST["piso"])) $piso = $_POST["piso"];
     else $piso = null;
-    if(isset($_POST["depto"])) $piso = $_POST["depto"];
+    if(isset($_POST["depto"])) $depto = $_POST["depto"];
     else $depto = null;
+
+    $consulta = "INSERT INTO clientes (nom, ape, dni, telefono, email, ciudad, calle, numero, piso, dep) VALUES ('$nom', '$ape', '$dni', '$tel', '$email', '$ciudad', '$calle', '$num', '$piso', '$depto')";
+
+    $resultado = mysqli_query($link, $consulta);
+
+    if($resultado) echo "<script>alert('Cliente cargado')</script>";
+    else echo "</script>alert('Algo salió mal')</script>";
 }
 ?>
 
@@ -28,7 +35,7 @@ if (isset($_POST["cargar"])) {
         </p>
         <p>
             <label>Apellido*</label><br>
-            <input type="text" name="nom" required>
+            <input type="text" name="ape" required>
         </p>
         <p>
             <label>DNI* (sin los puntos)</label><br>
@@ -36,7 +43,7 @@ if (isset($_POST["cargar"])) {
         </p>
         <p>
             <label>Teléfono*</label><br>
-            <input type="text" name="tel" pattern="[0-9()]{1,30}" required>
+            <input type="text" name="tel" pattern="[0-9()]{1,30}" required title="El número debe ir sin espacios">
         </p>
         <p>
             <label>E-Mail*</label><br>
