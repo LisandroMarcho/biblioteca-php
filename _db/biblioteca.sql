@@ -88,13 +88,6 @@ CREATE TABLE `libros` (
   `anio` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `libros`
---
-
-INSERT INTO `libros` (`idlibro`, `titulo`, `genero`, `editorial`, `anio`) VALUES
-(1, 'Moby-Dick', 'Novela, Épico, Ficción de aventuras', 'Planeta', '1851');
-
 -- --------------------------------------------------------
 
 --
@@ -155,7 +148,7 @@ ALTER TABLE `retiros`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `idautor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idautor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
@@ -167,7 +160,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `idlibro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idlibro` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `retiros`
