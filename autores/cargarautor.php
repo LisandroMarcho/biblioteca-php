@@ -55,10 +55,10 @@ if (isset($_POST["cargar"])) {
                 <?php
                 $result = mysqli_query($link, "SELECT * FROM autores");
 
-                while ($r = mysqli_fetch_array($result)) :
-                    ?>
-                    <option value="<?php echo $r[0] ?>"><?php echo $r[1] ?> <?php echo $r[2] ?></option>
-                <?php endwhile; ?>
+                while ($r = mysqli_fetch_array($result)){
+                    echo "<option value='$r[0]'>$r[1] $r[2]</option>";
+                }
+                ?>
             </select>
         </p>
         <p>
