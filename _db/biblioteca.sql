@@ -36,13 +36,6 @@ CREATE TABLE `autores` (
   `fallecimiento` varchar(10) DEFAULT NULL COMMENT 'Formato "AAAA/MM/DD"'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `autores`
---
-
-INSERT INTO `autores` (`idautor`, `nom`, `ape`, `nacimiento`, `fallecimiento`) VALUES
-(1, 'Herman', 'Melville', '01/08/1819', '28/09/1891');
-
 -- --------------------------------------------------------
 
 --
