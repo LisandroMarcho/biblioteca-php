@@ -15,7 +15,7 @@ if (isset($_POST["cargar"])) {
 
     if ($consulta) {
         mysqli_query($link, "INSERT INTO autoreslibros (idlibro, idautor) VALUES (LAST_INSERT_ID(), $idautor)");
-        echo "<script> alert('Cargado'); </script>";
+        echo "<script> alert('Cargado'); window.location='../libros'</script>";
     } else echo "<script> alert('Hubo un error en la carga'); </script>";
 }
 

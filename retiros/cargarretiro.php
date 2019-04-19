@@ -12,7 +12,7 @@ if (isset($_POST["cargar"])) {
     $query = "INSERT INTO retiros (idlibro, idcliente, salida, devolucion, devuelto) VALUES ('$idlibro', '$idcliente', '$salida', '$devolucion', 0)";
     $consulta = mysqli_query($link, $query);
 
-    if ($consulta) echo "<script>alert('Cargado')</script>";
+    if ($consulta) echo "<script>alert('Cargado'); window.location='../retiros'</script>";
     else echo "<script>alert('Hubo un problema')</script>";
 }
 

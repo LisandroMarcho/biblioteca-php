@@ -54,7 +54,7 @@ $consulta = mysqli_query($link, $query);
                 echo "<td>$r[2]</td>";
                 echo "<td>$r[3]</td>";
                 echo "<td>$r[4]</td>";
-                echo "<td><a href='./?eliminar=$r[0]'>Eliminar</a></td>";
+                echo "<td><a href='./?eliminar=$r[0]' class='w3-text-red'>Eliminar</a></td>";
                 echo "</tr>";
             }
         } else {

@@ -65,7 +65,7 @@ $consulta = mysqli_query($link, $query);
             </th>
         </tr>
         <?php
-        if ($consulta) {
+        if ($consulta && mysqli_num_rows($consulta) > 0) {
             while ($r = mysqli_fetch_array($consulta)) {
                 echo "<tr>";
                 echo "<td>$r[0]</td>";

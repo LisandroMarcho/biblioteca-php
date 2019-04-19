@@ -16,7 +16,7 @@ $query = "SELECT libros.*, autores.nom, autores.ape, autores.idautor
 if (isset($_GET["idautor"])) {
     $idautor = $_GET["idautor"];
     $query .= "$idautor";
-} else $query .= "autores.idautor";
+} else {$query .= "autores.idautor";}
 
 
 $query .= " ORDER BY libros.idlibro DESC";
@@ -60,7 +60,7 @@ $consulta = mysqli_query($link, $query);
             <th></th>
         </tr>
         <?php
-        if ($consulta && (mysqli_num_rows($consulta) > 1)) {
+        if ($consulta && (mysqli_num_rows($consulta) > 0)) {
             while ($r = mysqli_fetch_array($consulta)) {
                 echo "<tr>";
                 echo "<td>$r[0]</td>";
@@ -69,7 +69,7 @@ $consulta = mysqli_query($link, $query);
                 echo "<td>$r[3]</td>";
                 echo "<td>$r[4]</td>";
                 echo "<td><a href='./?idautor=$r[7]'>$r[5] $r[6]</a></td>";
-                echo "<td><a href='./?eliminar=$r[0]'>Eliminar</a></td>";
+                echo "<td><a href='./?eliminar=$r[0]' class='w3-text-red'>Eliminar</a></td>";
                 echo "</tr>";
             }
         } else {
