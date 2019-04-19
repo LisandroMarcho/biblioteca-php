@@ -15,13 +15,12 @@ if (isset($_POST["cargar"])) {
     if ($consulta) echo "<script> alert('Cargado'); window.location = '../libros/cargarlibro.php?id=$id'</script>";
     else echo "<script> alert('Hubo un error en la carga'); </script>";
 }
-
 ?>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div class="w3-container w3-center">
-    <a href="./" class="w3-button w3-indigo w3-margin-top">Volver a inicio</a> <br>
+    <a href="./" class="w3-button w3-indigo w3-margin-top">Volver a Autores</a> <br>
 </div>
 
 <div class="w3-container w3-display w3-half w3-mobile w3-center">
