@@ -1,6 +1,13 @@
 <?php
 include_once("../conx.php");
 
+if (isset($_GET["devolver"])) {
+    $iddevolver = $_GET["devolver"];
+    $queryDev = "UPDATE retiros SET devuelto = 1 WHERE idretiro = $iddevolver";
+    $resultado = mysqli_query($link, $queryDev);
+
+    if($resultado) echo "<script>alert('Libro devuelto')</script>";
+}
 
 $query = "SELECT retiros.*, clientes.nom, clientes.ape, libros.titulo 
           FROM retiros INNER JOIN
@@ -18,6 +25,8 @@ if (isset($_GET["idlibro"])) {
     else $query .= " WHERE retiros.idlibro = $idlibro";
 }
 
+$query .= " ORDER BY retiros.idretiro DESC";
+
 $consulta = mysqli_query($link, $query);
 
 ?>
@@ -30,7 +39,7 @@ $consulta = mysqli_query($link, $query);
 </div>
 
 <div class="w3-display">
-    <a href="./cargarretiro.hpp" style="position: fixed" class="w3-button w3-green w3-margin-top w3-display-bottommiddle w3-margin-bottom">Realizar un retiro</a>
+    <a href="./cargarretiro.php" style="position: fixed" class="w3-button w3-green w3-margin-top w3-display-bottommiddle w3-margin-bottom">Realizar un retiro</a>
 </div>
 
 <div class="w3-panel">
@@ -65,7 +74,7 @@ $consulta = mysqli_query($link, $query);
                 echo "<td>$r[3]</td>";
                 echo "<td>$r[4]</td>";
                 if ($r[5]) echo '<td class="w3-text-green">Devuelto</td>';
-                else echo '<td><a href="" class="w3-text-red">No devuelto</a></td>';
+                else echo "<td><a href='./?devolver=$r[0]' class='w3-text-red'>No devuelto</a></td>";
                 echo "</tr>";
             }
         } else {
