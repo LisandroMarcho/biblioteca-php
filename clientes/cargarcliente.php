@@ -19,7 +19,7 @@ if (isset($_POST["cargar"])) {
 
     $resultado = mysqli_query($link, $consulta);
 
-    if ($resultado) echo "<script>alert('Cliente cargado')</script>";
+    if ($resultado) echo "<script>alert('Cliente cargado'); window.location='../clientes'</script>";
     else echo "</script>alert('Algo salió mal')</script>";
 }
 ?>
