@@ -2,7 +2,7 @@
 include_once("../conx.php");
 
 if (isset($_GET["id"])) $idautor = $_GET["id"];
-else header("Location: ../autores/cargarautor.php");
+else header("Location: ../autores/cargarautor.php?de=libros");
 
 if (isset($_POST["cargar"])) {
     $titulo = $_POST["titulo"];

@@ -1,6 +1,9 @@
 <?php
 include_once("../conx.php");
 
+if (isset($_GET["de"]) && $_GET["de"] == "libros") $volverLibros = true;
+else $volverLibros = false;
+
 if (isset($_POST["cargar"])) {
     $nom = $_POST["nom"];
     $ape = $_POST["ape"];
@@ -20,7 +23,10 @@ if (isset($_POST["cargar"])) {
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <div class="w3-container w3-center">
-    <a href="./" class="w3-button w3-indigo w3-margin-top">Volver a Autores</a> <br>
+    <?php
+    if ($volverLibros) echo '<a href="../libros" class="w3-button w3-indigo w3-margin-top">Volver a Libros</a> <br>';
+    else echo '<a href="./" class="w3-button w3-indigo w3-margin-top">Volver a Autores</a> <br>';
+    ?>
 </div>
 
 <div class="w3-container w3-display w3-half w3-mobile w3-center">
@@ -58,6 +64,7 @@ if (isset($_POST["cargar"])) {
                 echo '<select name="id" disabled>';
                 echo '<option>No se encontraron autores</option>';
             } else {
+                echo '<select name="id">';
                 while ($r = mysqli_fetch_array($result)) {
                     echo "<option value='$r[0]'>$r[1] $r[2]</option>";
                 }
