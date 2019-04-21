@@ -51,14 +51,18 @@ if (isset($_POST["cargar"])) {
     <form method="GET" action="../libros/cargarlibro.php" class="w3-left w3-mobile">
         <p>
             <label>Seleccione un autor existente</label><br>
-            <select name="id">
-                <?php
-                $result = mysqli_query($link, "SELECT * FROM autores");
+            <?php
+            $result = mysqli_query($link, "SELECT * FROM autores");
 
-                while ($r = mysqli_fetch_array($result)){
+            if (!mysqli_num_rows($result)) {
+                echo '<select name="id" disabled>';
+                echo '<option>No se encontraron autores</option>';
+            } else {
+                while ($r = mysqli_fetch_array($result)) {
                     echo "<option value='$r[0]'>$r[1] $r[2]</option>";
                 }
-                ?>
+            }
+            ?>
             </select>
         </p>
         <p>
