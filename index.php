@@ -1,3 +1,12 @@
+<?php
+include_once("conx.php");
+
+$autores = mysqli_query($link, "SELECT COUNT(*) FROM autores");
+$libros = mysqli_query($link, "SELECT COUNT(*) FROM libros");
+$clientes = mysqli_query($link, "SELECT COUNT(*) FROM clientes");
+$retiros = mysqli_query($link, "SELECT COUNT(*) FROM retiros");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +30,20 @@
             <a href="./retiros" class="w3-button w3-bar-item">Retiros</a>
         </div>
     </div>
-    <div id="container">
-        ... page content ...
+    <div class="w3-container" id="container">
+        <h1>Biblioteca<label class="w3-text-blue">PHP</label></h1>
+        <h4>
+            Plataforma de administración de biblioteca
+        </h4>
+        <p>
+            <?php
+            while ($r = mysqli_fetch_array($autores)) echo "<h4>$r[0] autore/s</h4>";
+            while ($r = mysqli_fetch_array($libros)) echo "<h4>$r[0] libro/s</h4>";
+            while ($r = mysqli_fetch_array($clientes)) echo "<h4>$r[0] cliente/s</h4>";
+            while ($r = mysqli_fetch_array($retiros)) echo "<h4>$r[0] retiro/s</h4>";
+            ?>
+        </p>
     </div>
-
     <script src="js/main.js">
     </script>
 </body>

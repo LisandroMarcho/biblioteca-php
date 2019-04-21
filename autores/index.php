@@ -42,7 +42,7 @@ $consulta = mysqli_query($link, $query);
         </div>
 
         <div class="w3-container" id="container" style="margin-left: 25%;">
-            <table class="w3-table w3-striped w3-border">
+            <table class="w3-table w3-striped w3-border w3-margin-top">
                 <tr class="w3-border-bottom">
                     <th>
                         #ID Autor

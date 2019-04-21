@@ -1,4 +1,5 @@
 window.addEventListener('load', marginContainer());
+document.addEventListener('resize', marginContainer());
 
 function marginContainer(){
     var pageWidth =  window.innerWidth;
